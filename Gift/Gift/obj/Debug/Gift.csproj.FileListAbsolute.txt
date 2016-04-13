@@ -1,0 +1,6 @@
+D:\Epam\Study_2016\Task_13\Gift\Gift\bin\Debug\Gift.exe.config
+D:\Epam\Study_2016\Task_13\Gift\Gift\bin\Debug\Gift.exe
+D:\Epam\Study_2016\Task_13\Gift\Gift\bin\Debug\Gift.pdb
+D:\Epam\Study_2016\Task_13\Gift\Gift\obj\Debug\Gift.exe
+D:\Epam\Study_2016\Task_13\Gift\Gift\obj\Debug\Gift.pdb
+D:\Epam\Study_2016\Task_13\Gift\Gift\obj\Debug\Gift.csprojResolveAssemblyReference.cache
