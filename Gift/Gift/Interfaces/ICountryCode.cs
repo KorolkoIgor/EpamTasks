@@ -6,9 +6,8 @@ using System.Threading.Tasks;
 
 namespace Gift
 {
-   public interface ICalories:IGiftItem
-   {
-       double Calories { get; }
-       string GetTypeConsuption();
+    public interface ICountryCode : IGiftItem
+    {
+        int CountryCode { get; }
     }
 }

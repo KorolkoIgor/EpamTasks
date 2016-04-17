@@ -8,8 +8,12 @@ namespace Gift
 {
     public class Gift
     {
-        private IList<IGiftItem> _items = new List<IGiftItem>();
+        private ICollection<IGiftItem> _items;
 
+        public Gift(ICollection<IGiftItem> source)
+        {
+            this._items = source;
+        }
 
         public IEnumerable<IGiftItem> Items
         {
@@ -45,6 +49,11 @@ namespace Gift
             this._items.Remove(sweet);
         }
 
+        public double GetTotalSum()
+        {
+            return this.Items.Sum(x => x.Weight);
+        }
+
         public void SortByCalories()
         {
             var sweets = Items.Where(x => x is ICalories).ToList();
@@ -52,44 +61,32 @@ namespace Gift
             var newItems = sweets.Cast<ICalories>().OrderBy(x => x.Calories).Concat(rest);
             this.Clear();
             this.AddRange(newItems);
-            foreach (var s in Items)
-            {
-                Console.WriteLine(s.Name);
-            }
+        }
+
+        public IEnumerable<IShugarCalories> GetByShugar(double minShugar, double maxShugar)
+        {
+            var shugar = Items.Where(x => x is IShugarCalories).Cast<IShugarCalories>().Where(x =>
+                 x.Shugar <= maxShugar && x.Shugar >= minShugar);
+            return shugar;
+        }
+
+        public IEnumerable<ICountryCode> GetByCodeCountry(int codeCountry)
+        {
+            var sweets = Items.Where(x => x is ICountryCode).Cast<ICountryCode>().Where(x => x.CountryCode == codeCountry).ToList();
+             return sweets;
 
         }
 
-        public void FirstOrDefault(double minShugar, double maxShugar)
-        {
-            var shugar = Items.Where(x => x is IShugarCalories).Cast<IShugarCalories>().FirstOrDefault(x =>
-                x.Shugar <= maxShugar && x.Shugar >= minShugar);
-            if (shugar != null)
-            {
-                Console.WriteLine("{0} - {1}",shugar.Name, shugar.Shugar);
-            }
-            else
-                Console.WriteLine("No item in gift");
+        public IEnumerable<ICalories> GetByCalories()
+        {  
+            var sweets = Items.Where(x => x is ICalories).Cast<ICalories>().ToList();
+            return sweets;
 
-        }
-
-        public void GetMadeByCountry(MadeByCountry madeByCountry)
-        {
-            var sweets = Items.Where(x => x is IMadeBy).ToList();
-            var newItems = sweets.Cast<IMadeBy>().Where(x => x.MadyByCountry == madeByCountry).ToList();
-
-            if (newItems != null)
-            {
-                Console.WriteLine("-----------------------------------------------");
-                Console.WriteLine("Mady by {0} this product: ", madeByCountry);
-
-                foreach (var s in newItems)
-                {
-                    Console.WriteLine(s.Name);
-                }
-            }
         }
     }
-}
+  }
+    
+
 
     
                   

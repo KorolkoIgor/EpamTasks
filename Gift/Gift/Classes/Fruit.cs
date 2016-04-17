@@ -17,24 +17,8 @@ namespace Gift
      
         public Fruit(string name, double weight, double calories):base(name, weight)
         {
-            if (calories > 0 && calories < 100)
-            {
-                this.Calories = calories;
-            }
-            else
-            {
-                if (calories > 0 && calories < 100)
-                {
-                    this.Calories = calories;
-                }
-                else
-                {
-                    Console.WriteLine("Element {0} not a valid value {1}! Calories greater then 0 and less 100", this.Name, calories);
-                    Console.ReadLine();
-                    Environment.Exit(0);
-                }
-            }
            
+                this.Calories = calories;
         }
 
         public override string ToString()
@@ -47,9 +31,9 @@ namespace Gift
                 ); 
         }
        
-        public void Duration()
+        public string GetTypeConsuption()
         {
-            Console.WriteLine("Expiration date for fruit {0} 3 months", this.Name);
+            return "Unlimited";
         }
     }
 }

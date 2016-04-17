@@ -3,7 +3,7 @@
   <Class Name="Gift.Toy">
     <Position X="1.25" Y="1.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAQAAAAAAEAQAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>ACAAAAAAAAAAAAAEAQAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Classes\Toy.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
@@ -11,7 +11,7 @@
   <Class Name="Gift.Sweet">
     <Position X="4.5" Y="2" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>IAAAAAAAAAACAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>IAQAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Classes\Sweet.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
@@ -27,7 +27,7 @@
   <Class Name="Gift.Fruit">
     <Position X="8" Y="1.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>IAAAAAAAAAACAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>IAQAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Classes\Fruit.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
@@ -35,22 +35,22 @@
   <Class Name="Gift.Candy">
     <Position X="5.75" Y="4.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAQAACAAAEAAAAAAAAAAAAAAAQAAAAAAAAAAA=</HashCode>
+      <HashCode>ACQAAAAAAAAAAAAEAAAAAAAAAAAAAAAQAAAAAAAAAAA=</HashCode>
       <FileName>Classes\Candy.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
   </Class>
-  <Class Name="Gift.OtherSweet">
+  <Class Name="Gift.Pastry">
     <Position X="3.5" Y="4.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAACAAAEAAACAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Classes\OtherSweet.cs</FileName>
+      <HashCode>AAQAAAAAAAAAAAAEAAAAAAAAABAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Classes\Pastry.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Gift.Gift">
     <Position X="9.75" Y="2.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAIAAAAICAAACAAAAAAABAAAABAAAAAAAABAAABEAAA=</HashCode>
+      <HashCode>AAIAAAAACAAACAAAAAAAhAAAEBGAAAAAAAAAAABEAAA=</HashCode>
       <FileName>Classes\Gift.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -64,7 +64,7 @@
   <Interface Name="Gift.ICalories" Collapsed="true">
     <Position X="3" Y="8.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>IAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>IAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Interfaces\ICalories.cs</FileName>
     </TypeIdentifier>
   </Interface>
@@ -75,11 +75,11 @@
       <FileName>Interfaces\IShugarCalories.cs</FileName>
     </TypeIdentifier>
   </Interface>
-  <Interface Name="Gift.IMadeBy" Collapsed="true">
+  <Interface Name="Gift.ICountryCode" Collapsed="true">
     <Position X="7.75" Y="8.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Interfaces\IMadeBy.cs</FileName>
+      <HashCode>ACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Interfaces\ICountryCode.cs</FileName>
     </TypeIdentifier>
   </Interface>
   <Interface Name="Gift.IGiftItem" Collapsed="true">
@@ -89,26 +89,5 @@
       <FileName>Interfaces\IGiftItem.cs</FileName>
     </TypeIdentifier>
   </Interface>
-  <Enum Name="Gift.CandyTypes" Collapsed="true">
-    <Position X="11.5" Y="1.5" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAEAAAAAAAAAAEIAAAAAAAAAACCAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Enums\CandyTypes.cs</FileName>
-    </TypeIdentifier>
-  </Enum>
-  <Enum Name="Gift.MadeByCountry" Collapsed="true">
-    <Position X="13.25" Y="1.5" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAgAAAAAAAABAAAAACAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Enums\MadeByCountry.cs</FileName>
-    </TypeIdentifier>
-  </Enum>
-  <Enum Name="Gift.OtherSweetTypes" Collapsed="true">
-    <Position X="11.5" Y="2.25" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAIAAEAAAAAAAAAAAAAAgAAAAAAAIAAAAAAA=</HashCode>
-      <FileName>Enums\OtherSweetTypes.cs</FileName>
-    </TypeIdentifier>
-  </Enum>
   <Font Name="Segoe UI" Size="9" />
 </ClassDiagram>

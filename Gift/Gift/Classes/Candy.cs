@@ -6,25 +6,25 @@ using System.Threading.Tasks;
 
 namespace Gift
 {
-    public class Candy : Sweet, IMadeBy
+    public class Candy : Sweet, ICountryCode
     {
-        public CandyTypes CandyType
+        public string CandyType
         {
             get;
             set;
         }
-        public MadeByCountry MadyByCountry
+        public int CountryCode
         {
             get;
             set;
         }
 
-        public Candy(string name, double weight, double calories, double shugar,  CandyTypes candyType, MadeByCountry madyByCountry)
+        public Candy(string name, double weight, double calories, double shugar,  string candyType, int countryCode)
             : base(name, weight, calories, shugar)
         {
 
             CandyType = candyType;
-            MadyByCountry = madyByCountry;
+            CountryCode = countryCode;
         }
 
         public override string ToString()
@@ -36,12 +36,14 @@ namespace Gift
                 Calories,
                 Shugar,
                 CandyType,
-                MadyByCountry
+                CountryCode
                 );
         }
-        public override void Duration()
+        public override string GetTypeConsuption()
         {
-            Console.WriteLine("Expiration date for candy {0} 6 months", this.Name);
+            if (this.Shugar>=15 && this.Calories>=30)
+            return  "Cut";
+            else return "Normal ";
         }
     }
 }

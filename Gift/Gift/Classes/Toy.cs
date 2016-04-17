@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Gift
 {
-   public class Toy:GiftItem,IMadeBy
+   public class Toy:GiftItem, ICountryCode
    {      
        public int MinAge
        {
@@ -15,29 +15,18 @@ namespace Gift
           private set;
        }
 
-      public MadeByCountry MadyByCountry
+       public int CountryCode
        {
            get;
            set;
        }
 
-       public Toy(string name, double weight, int minAge, MadeByCountry madeByCountry)
+      public Toy(string name, double weight, int minAge, int countryCode)
            : base(name, weight)
        {
-           this.MadyByCountry = madeByCountry;
-
-           if (minAge > 0 && minAge < 16)
-           {
-               this.MinAge = minAge;
-           }
-           else
-           {
-               Console.WriteLine("Element {0} not a valid value {1}! MinAge greater then 0 and less 16", this.Name, minAge);
-               Console.ReadLine();
-               Environment.Exit(0);
-           }
-  
-       }
+           this.CountryCode = countryCode;
+           this.MinAge = minAge;
+        }
 
        public override string ToString()
        {
@@ -46,7 +35,7 @@ namespace Gift
                Name,
                Weight,
                MinAge,
-               MadyByCountry               
+               CountryCode               
                );
 
 
