@@ -33,10 +33,11 @@ namespace Text_Analysis
             return sentence;
         }
 
-        public List<ISentenceItem> GetWordsByLength(int length)
+        public List<Word> GetWordsByLength(int length)
         {
-            var words = Items.Where(x => x is Word).ToList();
-            return words.Where(x => x.chars.Length == length).ToList();
+            var words = Items.Where(x => x is Word);
+            var tt = words.Where(x => x.chars.Length == length).Cast<Word>();
+           return tt.ToList();
         }
 
         public void RemoveWordsByLength(int length)
@@ -50,9 +51,9 @@ namespace Text_Analysis
         {
             for (int i = 0; i <= Items.Count() - 1; i++)
             {
-                var vv = Items[i] as Word;
+                var word = Items[i] as Word;
 
-                if (vv != null && vv.chars.Length == length)
+                if (word != null && word.chars.Length == length)
                 {
                     Items[i] = new Word(newWord);
                 }

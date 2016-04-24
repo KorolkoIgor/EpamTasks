@@ -5,8 +5,8 @@ using System.Text;
 
 namespace Text_Analysis
 {
-    public interface IPunctuation:ISentenceItem
+   public  interface ISentenceItemFactory
     {
-        Symbol[] Value { get; }
+       ISentenceItem Create(string chars);
     }
 }

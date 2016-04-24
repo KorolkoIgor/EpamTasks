@@ -9,7 +9,7 @@ namespace Text_Analysis
     {
         Symbol this[int index] { get; }
 
-        string chars { get; }
+      //  string chars { get; }
         bool IsFirstVowel { get; }
        
     }

@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Text_Analysis
 {
-    public class Word:IWord
+    public class Word : IWord
     {
         private Symbol[] symbols;
 
@@ -38,13 +38,29 @@ namespace Text_Analysis
             }
         }
 
-     
         public bool IsFirstVowel
         {
             get
             {
                 return "eyuioa".Contains(symbols[0].Chars.ToLower());
             }
+        }
+               
+        public override bool Equals(object obj)
+        {
+            if (obj is Word)
+            {
+                return this.chars == ((Word)obj).chars;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        public override int GetHashCode()
+        {
+            return chars.GetHashCode();
         }
     }
 }
