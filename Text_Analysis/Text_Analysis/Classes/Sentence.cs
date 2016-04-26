@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
+
 namespace Text_Analysis
 {
     public class Sentence
@@ -17,7 +18,7 @@ namespace Text_Analysis
         {
             get
             {
-                return Items.Count(x => x is Word);
+                return Items.Count(x => x is IWord);
             }
         }
         public string GetSentence()
@@ -33,16 +34,16 @@ namespace Text_Analysis
             return sentence;
         }
 
-        public List<Word> GetWordsByLength(int length)
+        public List<IWord> GetWordsByLength(int length)
         {
-            var words = Items.Where(x => x is Word);
-            var tt = words.Where(x => x.chars.Length == length).Cast<Word>();
+            var words = Items.Where(x => x is IWord);
+            var tt = words.Where(x => x.chars.Length == length).Cast<IWord>();
            return tt.ToList();
         }
 
         public void RemoveWordsByLength(int length)
         {
-            Items.RemoveAll(x => (x.chars.Length == length) && !((x as Word).IsFirstVowel));
+            Items.RemoveAll(x => (x.chars.Length == length) && !((x as IWord).IsFirstVowel));
 
         }
               
@@ -51,7 +52,7 @@ namespace Text_Analysis
         {
             for (int i = 0; i <= Items.Count() - 1; i++)
             {
-                var word = Items[i] as Word;
+                var word = Items[i] as IWord;
 
                 if (word != null && word.chars.Length == length)
                 {

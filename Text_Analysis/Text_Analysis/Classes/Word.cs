@@ -15,6 +15,10 @@ namespace Text_Analysis
             {
                 this.symbols = chars.Select(x => new Symbol(x)).ToArray();
             }
+            else
+            {
+                this.symbols = null;
+            }
         }
 
         public Symbol this[int index]
@@ -61,6 +65,18 @@ namespace Text_Analysis
         public override int GetHashCode()
         {
             return chars.GetHashCode();
+
         }
+        public IEnumerator<Symbol> GetEnumerator()
+        {
+            return symbols.AsEnumerable().GetEnumerator();
+        }
+
+        System.Collections.IEnumerator System.Collections.IEnumerable.GetEnumerator()
+        {
+            return this.symbols.GetEnumerator();
+        }
+
+
     }
 }

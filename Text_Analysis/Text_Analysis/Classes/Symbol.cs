@@ -15,6 +15,11 @@ namespace Text_Analysis
             private set { chars = value; }
         }
 
+        public Symbol(string chars)
+        {
+            this.chars = chars;
+        }
+
         public Symbol(char source)
         {
             this.chars = String.Format("{0}", source);

@@ -7,6 +7,6 @@ namespace Text_Analysis
 {
     public interface IPunctuation:ISentenceItem
     {
-        Symbol[] Value { get; }
+        Symbol Value { get; }
     }
 }

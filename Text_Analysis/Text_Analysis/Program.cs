@@ -11,12 +11,13 @@ namespace Text_Analysis
         static void Main(string[] args)
         {
             Text presentText = new Text();
-            StreamReader textfile = File.OpenText("../../Text.txt");
+            string textfile = "../../Text.txt";
             Parser newParser = new Parser();
 
             presentText = newParser.Parse(textfile);
             Console.WriteLine(presentText.GetText());
             Console.ReadLine();
+            
             //Sorted text by sentence words
             var sortedText = presentText.SortByLength();
             foreach (var item in sortedText)
@@ -24,6 +25,7 @@ namespace Text_Analysis
                 Console.WriteLine(item.GetSentence());
             }
             Console.ReadLine();
+            
             //Get question sentences 
             var questionSentence = presentText.GetByQuestionType();
             foreach (var item in questionSentence)
@@ -31,12 +33,14 @@ namespace Text_Analysis
                 Console.WriteLine(item.GetSentence());
             }
             Console.ReadLine();
+            
             //In question sentences print words of a given length 
             foreach (var t in presentText.GetWordsByLengthInQuestionSentence(2))
             {
                 Console.WriteLine(t.chars);
             }
             Console.ReadLine();
+            
             //remove words by lenght 7 begins with a consonant
             Text text = presentText.RemoveWordsByLength(7);
             Console.WriteLine(text.GetText());

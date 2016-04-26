@@ -41,21 +41,21 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="IPunctuation.cs" />
-    <Compile Include="ISentenceItem.cs" />
-    <Compile Include="ISentenceItemFactory.cs" />
-    <Compile Include="IWord.cs" />
-    <Compile Include="Parser.cs" />
+    <Compile Include="Interfaces\IPunctuation.cs" />
+    <Compile Include="Interfaces\ISentenceItem.cs" />
+    <Compile Include="Interfaces\ISentenceItemFactory.cs" />
+    <Compile Include="Interfaces\IWord.cs" />
+    <Compile Include="Classes\Parser.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Punctuation.cs" />
-    <Compile Include="PunctuationFactory.cs" />
-    <Compile Include="Sentence.cs" />
-    <Compile Include="SeparatorContainer.cs" />
-    <Compile Include="Symbol.cs" />
-    <Compile Include="Text.cs" />
-    <Compile Include="Word.cs" />
-    <Compile Include="WordFactory.cs" />
+    <Compile Include="Classes\Punctuation.cs" />
+    <Compile Include="Classes\PunctuationFactory.cs" />
+    <Compile Include="Classes\Sentence.cs" />
+    <Compile Include="Classes\SeparatorContainer.cs" />
+    <Compile Include="Classes\Symbol.cs" />
+    <Compile Include="Classes\Text.cs" />
+    <Compile Include="Classes\Word.cs" />
+    <Compile Include="Classes\WordFactory.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Text.txt" />
