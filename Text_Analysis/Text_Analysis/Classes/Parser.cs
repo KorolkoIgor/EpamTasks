@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.IO;
 using System.Text.RegularExpressions;
+using Text_Analysis.Interfaces;
 
 namespace Text_Analysis
 {
@@ -11,9 +12,7 @@ namespace Text_Analysis
     {
         private SeparatorContainer separators = new SeparatorContainer();
 
-        private WordFactory wordFactory = new WordFactory();
-        private PunctuationFactory punctuationFactory = new PunctuationFactory();
-     
+          
         public Text Parse(string path)
         {
             Text resultText = new Text();
@@ -21,9 +20,7 @@ namespace Text_Analysis
            
             StringBuilder buffer = new StringBuilder();
             buffer.Clear();
-            try
-            {
-                using (StreamReader text = new StreamReader(path))
+               using (StreamReader text = new StreamReader(path))
                 {
                     string currentText = text.ReadLine();
 
@@ -46,18 +43,10 @@ namespace Text_Analysis
                                 firstSentenceSeparator = s;
                             }
                         }
-
-
-                        // string firstSentenceSeparator = sentenceSeparators.FirstOrDefault(x =>
-                        //{
-                        //    sentenceSeparatorIndex = currentText.IndexOf(x);
-                        //    return sentenceSeparatorIndex >= 0;
-                        //});
-
                         if (firstSentenceSeparator != null)
                         {
                             buffer.Append(currentText.Substring(0, sentenceSeparatorIndex1 + firstSentenceSeparator.Length));
-                            Sentence newSentence = CreateSentence(buffer.ToString());
+                            ISentence newSentence = CreateSentence(buffer.ToString());
                             resultText.Add(newSentence);
                             buffer.Clear();
                             currentText = currentText.Remove(0, sentenceSeparatorIndex1 + firstSentenceSeparator.Length);
@@ -81,22 +70,13 @@ namespace Text_Analysis
                     }
 
                 }
-              
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine("The file could not be read:");
-                Console.WriteLine(e.Message);
-            }
-            
             return resultText;
-
         }
 
       
-        public Sentence CreateSentence(string sourse)
+        public ISentence CreateSentence(string sourse)
         {
-            Sentence newSentence = new Sentence();
+            ISentence newSentence = new Sentence();
             var wordSeparators = separators.WordSeparators().Concat(separators.SentenceSeparators());
            
             string pattern = "\\s+"; 
@@ -109,9 +89,6 @@ namespace Text_Analysis
             string result = gaps.Replace(sourse, replacement);
             string finall = tab.Replace(result, replacement);
 
-
-
-            
             bool tr = true;
 
             while (tr == true)
@@ -136,17 +113,11 @@ namespace Text_Analysis
                     }
                 }
                 
-                //string punctuationMark = wordSeparators.FirstOrDefault(x =>
-                //{
-                //    punctuationMarkIndex = sourse.IndexOf(x);
-                //    return punctuationMarkIndex >= 0;
-                //});
-
                 if (punctuationMark != null)
                 {
-                    newSentence.Items.Add(wordFactory.Create(finall.Substring(0, punctuationMarkIndex1)));
+                    newSentence.Items.Add(new Word(finall.Substring(0, punctuationMarkIndex1)));
 
-                    newSentence.Items.Add(punctuationFactory.Create(finall.Substring(punctuationMarkIndex1, punctuationMark.Length)));
+                    newSentence.Items.Add(new Punctuation(finall.Substring(punctuationMarkIndex1, punctuationMark.Length)));
                     finall = finall.Remove(0, punctuationMarkIndex1 + punctuationMark.Length);
                     tr = true;
 

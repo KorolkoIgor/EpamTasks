@@ -2,21 +2,21 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-
+using System.IO;
+using Text_Analysis.Interfaces;
 
 namespace Text_Analysis
 {
     public class Text
     {
-        private ICollection<Sentence> TextContainer{ get; set;}
+        private ICollection<ISentence> TextContainer { get; set; }
         
          public Text()
         {
-            TextContainer = new List<Sentence>();
+            TextContainer = new List<ISentence>();
         }
-        
-        
-        public void Add(Sentence item)
+  
+        public void Add(ISentence item)
         {
             TextContainer.Add(item);
         }
@@ -30,68 +30,60 @@ namespace Text_Analysis
        
         public string GetText()
         {
-            string newText = "";
+            StringBuilder sb = new StringBuilder();
             foreach (var item in TextContainer)
             {
-                newText += item.GetSentence() + " ";
+                     sb.Append(item.GetSentence()+" ");
             }
-            return newText;
+            return sb.ToString(); 
         }
 
-        public List<Sentence> SortByLength()
+        public void SaveTextToFile(string textpath)
+        {
+            
+            using (StreamWriter sw = new StreamWriter(textpath, false))
+            {
+                foreach (var item in TextContainer)
+                  
+                    sw.WriteLine(item.GetSentence());
+             }
+         }
+        
+        public IEnumerable<ISentence> SortByLength()
         {
 
-            IEnumerable<Sentence> query = from sentence in TextContainer
+            IEnumerable<ISentence> query = from sentence in TextContainer
                                           orderby sentence.Length
                                           select sentence;
             return query.ToList();
         }
 
-
-        public List<Sentence> GetByQuestionType()
+        public List<ISentence> GetByQuestionType()
         {
-           IEnumerable<Sentence> query = from sentence in TextContainer
-                                         where sentence.Items.Last().chars == "?"
+           var qu = new Punctuation("?");
+           IEnumerable<ISentence> query = from sentence in TextContainer
+                                         where sentence.Items.Last().chars == qu.chars
                                          select sentence;
             return query.ToList();
         }
-
-        public List<IWord> GetWordsByLengthInQuestionSentence(int length)
+        
+        public IEnumerable<IWord> GetWordsByLengthInQuestionSentence(int length)
         {
-            List<IWord> words = new List<IWord>();
-            foreach (var item in GetByQuestionType())
-            {
-                foreach (var pp in item.GetWordsByLength(length))
-                {
-                    words.Add(pp);
-                }
-            }
-            var yy = words.Distinct<IWord>().ToList();
-            return yy;
+           return  GetByQuestionType().SelectMany(x => x.GetWordsByLength(length)).Distinct<IWord>().ToList();
         }
 
-        //public List<ISentenceItem> GetWordsByLength(int length)
-        //{
-        //    List<ISentenceItem> words = new List<ISentenceItem>();
-        //    foreach (var item in _textContainer)
-        //    {
-        //        words.AddRange(item.GetWordsByLength(length));
-        //    }
-        //   return words;
-        //} 
-        
         public Text RemoveWordsByLength(int length)
         {
             Text text = new Text();
             foreach (var item in TextContainer)
             {
-                item.RemoveWordsByLength(length);
+                item.RemoveAll(length);
                 text.Add(item);
             }
             return text;
         }
 
-        public Sentence GetSentenceByIndex(int index)
+        public ISentence GetSentenceByIndex(int index)
         {
             var sentence = TextContainer.ElementAt(index);
             return sentence;

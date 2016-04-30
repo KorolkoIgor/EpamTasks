@@ -2,13 +2,14 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Text_Analysis.Interfaces;
 
 
 namespace Text_Analysis
 {
-    public class Sentence
+    public class Sentence:ISentence
     {
-        public List<ISentenceItem> Items { get; set; }
+        public IList<ISentenceItem> Items { get; set; }
         public Sentence()
         {
             Items = new List<ISentenceItem>();
@@ -23,32 +24,39 @@ namespace Text_Analysis
         }
         public string GetSentence()
         {
-            string sentence = "";
+            StringBuilder sb = new StringBuilder();
             foreach (var item in Items)
             {
                 if (item.chars == ",")
-                { sentence += item.chars + " "; }
+                {
+                    sb.Append(item.chars + " ");
+                }
                 else
-                    sentence += item.chars;
+                    sb.Append(item.chars);
             }
-            return sentence;
+            return sb.ToString(); 
         }
 
-        public List<IWord> GetWordsByLength(int length)
+
+        public IEnumerable<IWord> GetWordsByLength(int length)
         {
-            var words = Items.Where(x => x is IWord);
-            var tt = words.Where(x => x.chars.Length == length).Cast<IWord>();
-           return tt.ToList();
+            return  Items.Where(x => x is IWord).Where(x => x.chars.Length == length).Cast<IWord>().ToList(); 
+         
         }
 
-        public void RemoveWordsByLength(int length)
+        public  IEnumerable<ISentenceItem> RemoveAll(int length)
         {
-            Items.RemoveAll(x => (x.chars.Length == length) && !((x as IWord).IsFirstVowel));
-
+            IList<ISentenceItem> NewSen = new List<ISentenceItem>();
+            foreach (var item in Items)
+            {
+                if (!((item.chars.Length == length) && !((item as IWord).IsFirstVowel)))
+                   
+                NewSen.Add(item);
+           }
+            return Items = NewSen;
         }
-              
 
-        public void ReplaceWordsByLength(int length, string newWord)
+        public IEnumerable<ISentenceItem> ReplaceWordsByLength(int length, string newWord)
         {
             for (int i = 0; i <= Items.Count() - 1; i++)
             {
@@ -59,6 +67,12 @@ namespace Text_Analysis
                     Items[i] = new Word(newWord);
                 }
             }
+            Parser newParser = new Parser();
+           Items = newParser.CreateSentence(GetSentence()).Items;
+            
+          return Items;
+        }
+
         }
     }
-}
+

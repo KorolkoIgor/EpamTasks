@@ -31,15 +31,16 @@ namespace Text_Analysis
 
         public string chars
         {
-            get
+             get 
             {
-                string word = "";
-                foreach (var item in symbols)
+                StringBuilder sb = new StringBuilder();
+                foreach (var s in this.symbols)
                 {
-                    word += item.Chars;
+                    sb.Append(s.Chars);
                 }
-                return word;
+                return sb.ToString(); 
             }
+
         }
 
         public bool IsFirstVowel

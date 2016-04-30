@@ -8,8 +8,6 @@ namespace Text_Analysis
     public interface IWord:ISentenceItem, IEnumerable<Symbol>
     {
         Symbol this[int index] { get; }
-
-        string chars { get; }
         bool IsFirstVowel { get; }
        
     }

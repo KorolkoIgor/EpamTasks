@@ -33,6 +33,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -42,23 +43,25 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Interfaces\IPunctuation.cs" />
+    <Compile Include="Interfaces\ISentence.cs" />
     <Compile Include="Interfaces\ISentenceItem.cs" />
-    <Compile Include="Interfaces\ISentenceItemFactory.cs" />
     <Compile Include="Interfaces\IWord.cs" />
     <Compile Include="Classes\Parser.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Classes\Punctuation.cs" />
-    <Compile Include="Classes\PunctuationFactory.cs" />
     <Compile Include="Classes\Sentence.cs" />
     <Compile Include="Classes\SeparatorContainer.cs" />
     <Compile Include="Classes\Symbol.cs" />
     <Compile Include="Classes\Text.cs" />
     <Compile Include="Classes\Word.cs" />
-    <Compile Include="Classes\WordFactory.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Text.txt" />
+    <Content Include="TextSave.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
