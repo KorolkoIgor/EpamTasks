@@ -4,11 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-
 namespace PhoneStation
 {
-    public class Request
+    public class OutCallRequest:Request
     {
-        public PhoneNumber Source { get; set; }
+        public PhoneNumber Target { get; set; }
     }
 }

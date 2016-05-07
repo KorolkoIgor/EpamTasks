@@ -7,5 +7,6 @@ namespace PhoneStation
 {
     public class RegisterTerminal:EventArgs
     {
+        public Port ResultPort { get; set; }
     }
 }
