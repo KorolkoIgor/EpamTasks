@@ -7,11 +7,8 @@ namespace PhoneStation
 {
     public interface IPort
     {
-        PortState State { get; set; }
-
-       
-        event EventHandler<PortState> StateChanged;
-
-        void RegisterEventHandlersForTerminal(ITerminal terminal);
+        PortState State { get; }
+        event EventHandler StateChanged;
+        void ClearEvents();
     }
 }

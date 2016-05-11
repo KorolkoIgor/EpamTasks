@@ -44,21 +44,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CallHistory.cs" />
     <Compile Include="Contract.cs" />
     <Compile Include="IPort.cs" />
+    <Compile Include="IStation.cs" />
     <Compile Include="ITerminal.cs" />
-    <Compile Include="OutCallRequest.cs" />
     <Compile Include="PhoneNumber.cs" />
     <Compile Include="Port.cs" />
     <Compile Include="PortState.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="RegisterTerminal.cs" />
     <Compile Include="Request.cs" />
-    <Compile Include="Respond.cs" />
-    <Compile Include="RespondState.cs" />
+    <Compile Include="Station.cs" />
     <Compile Include="Terminal.cs" />
-    <Compile Include="TestPort.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />

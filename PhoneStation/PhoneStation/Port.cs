@@ -5,9 +5,9 @@ using System.Text;
 
 namespace PhoneStation
 {
-    public abstract class Port:IPort
+    public class Port:IPort
     {
-        private PortState _state = PortState.UnPlugged;
+        private PortState _state;
 
         public PortState State
         {
@@ -18,34 +18,51 @@ namespace PhoneStation
             set
             {
                 if (_state != value)
-                    OnStateChanged(this, value);
-                _state = value;
-
+                    _state = value;
+                OnStateChanged(this, null);
             }
         }
 
-        public event EventHandler<PortState> StateChanged;
-
-        protected virtual void OnStateChanged(object sender, PortState state)
+        public Port(Terminal terminal)
         {
-            if (StateChanged != null)
+            this.StateChanged += (sender, arg) =>
             {
-                StateChanged(sender, state);
-            }
+                Console.WriteLine("Port terminal number {0} detected the State is changed to {1}",
+                    terminal.Number, State);
+            };
+            State = PortState.UnPlugged;
+            RegisterEventHandlersForTerminal(terminal);
         }
 
-        public abstract void RegisterEventHandlersForTerminal(ITerminal terminal);
-       
-        public Port()
+        public event EventHandler StateChanged;
+
+        protected virtual void OnStateChanged(object sender, EventArgs arg)
         {
-            this.StateChanged += (sender, state) => { Console.WriteLine("Port detected the State is changed to {0}", state); };
+            var temp = StateChanged;
+            if (temp != null)
+            {
+                temp(sender, arg);
+            }
+            else
+                Console.WriteLine("To port is not connected terminal!");
         }
 
+        public void RegisterEventHandlersForTerminal(ITerminal terminal)
+        {
+            terminal.Connected += (port, args) =>
+            {
+                Console.WriteLine("Terminal {0} plug to port", terminal.Number);
+                this.State = PortState.Free;
+            };
+            //terminal.DisConnected += (port, args) =>
+            //{
+            //    Console.WriteLine("Terminal {0} unplug to port", terminal.Number);
+            //    this.State = PortState.UnPlugged;
+            //};
+        }
         public void ClearEvents()
         {
             this.StateChanged = null;
-
         }
-
     }
 }

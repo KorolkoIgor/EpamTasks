@@ -8,44 +8,21 @@ namespace PhoneStation
 {
     public interface ITerminal
     {
-        //assignment of a phone number to the terminal
-        PhoneNumber Number { get; }
-
-        //Event: to make an outcoming call from the terminal to station
-        event EventHandler<Request> OutcomingCall;
+       PhoneNumber Number { get; }
+    
 
 
-
-        //Event: to make an incoming call from the station to terminal 
-        event EventHandler<OutCallRequest> IncomingRequest;
-
-        //Event: terminal send respond to the station  
-        event EventHandler<Respond> IncomingRespond;
-
-        //Event: terminal set the connection  
-        event EventHandler OnlineMode;
-
-        //Event: terminal cut of the connection  
-        event EventHandler OfflineMode;
-
-        //Event: user plug the device  
         event EventHandler Connected;
+        event EventHandler<Request> CallFrom;
+        event EventHandler RegisterTerminal;
+        event EventHandler AcceptCall;
+        event EventHandler EndCall;
 
-        //Event: user unplug device  
-        event EventHandler DisConnected;
-
-
-
-        void IncomingRequestFrom(PhoneNumber source);
-        void Call(PhoneNumber target);
-        void Drop();
+        void Call(Terminal target);
         void Answer();
+        void Drop();
         void Connect();
-        void DisConnect();
-
-        // registration port
-        void RegisterEventHandlersForPort(Port port);
-
+        bool IsPortOnStation();
         void ClearEvents();
        
     }

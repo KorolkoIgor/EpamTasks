@@ -7,134 +7,120 @@ namespace PhoneStation
 {
     public class Terminal:ITerminal
     {
-        protected bool IsOnLine { get; private set; }
-
         public PhoneNumber Number { get; set; }
+        public PhoneNumber IncomingNumber { get; set; }
+      
+        public CallHistory callHistory;
+ 
 
-        public Terminal(PhoneNumber number)
+        public Terminal(PhoneNumber abonentNumber, Station station)   
         {
-            this.Number = number;
-        }
-
-        //property of incoming Request
-        private Request StationIncomingRequest { get; set; }
-
-        public event EventHandler<Request> OutcomingCall;
-
-        //EventHandler method for event OutcomingCall
-        protected virtual void OnOutcomingCall(object sender, PhoneNumber target)
-        {
-            if (OutcomingCall != null)
+            Number = abonentNumber;
+         
+            RegisterTerminal += station.TerminalRegister;
+           
+           if (IsPortOnStation())
             {
-                StationIncomingRequest = new OutCallRequest() { Source = this.Number, Target = target };
-                OutcomingCall(sender, StationIncomingRequest);
+                CallFrom += station.TerminalCall;
+                AcceptCall += station.TerminalAnswer;
+                EndCall += station.TerminalEndCall;
             }
         }
 
-        public event EventHandler<OutCallRequest> IncomingRequest;
+        public event EventHandler<Request> CallFrom;
 
-        //EventHandler method for event IncomingRequest
-        protected virtual void OnIncomingRequest(object sender, OutCallRequest request)
+        protected virtual void OnCallFrom(object sender, Request request)
         {
-            if (IncomingRequest != null)
+            var temp = CallFrom;
+
+            if (temp != null)
             {
-                request.Target = this.Number;
-                IncomingRequest(sender, request);
+                temp(sender, request);
             }
-            StationIncomingRequest = request;
-        }
 
-        public void IncomingRequestFrom(PhoneNumber source)
-        {
-            OnIncomingRequest(this, new OutCallRequest() { Source = source });
+            else
+                Console.WriteLine("Terminal is not connected station!");
         }
 
 
-        public event EventHandler<Respond> IncomingRespond;
-        //EventHandler method for event IncomingRespond
+        public event EventHandler RegisterTerminal;
 
-        protected virtual void OnIncomingRespond(object sender, Respond respond)
+        protected virtual void OnRegisterTerminal(object sender, EventArgs arg)
         {
-            if (this.IncomingRespond != null && StationIncomingRequest != null)
-            {
-                this.IncomingRespond(sender, respond);
+            var temp = RegisterTerminal;
 
+            if (temp != null)
+            {
+                temp(sender, arg);
             }
+
+            else
+                Console.WriteLine("Terminal is not registered!");
         }
 
-        public event EventHandler OnlineMode;
+        public event EventHandler AcceptCall;
 
-        protected virtual void OnOnlineMode(object sender, EventArgs arg)
+        protected virtual void OnAcceptCall(object sender, EventArgs arg)
         {
-            if (OnlineMode != null)
-            {
-                OnlineMode(sender, arg);
+            var temp = AcceptCall;
 
+            if (temp != null)
+            {
+                temp(sender, arg);
             }
-            IsOnLine = true;
+
+            else
+                Console.WriteLine("Terminal is not connected station!");
         }
 
-        public event EventHandler OfflineMode;
+        public event EventHandler EndCall;
 
-        protected virtual void OnOfflineMode(object sender, EventArgs arg)
+        protected virtual void OnEndCall(object sender, EventArgs arg)
         {
-            if (OfflineMode != null)
+            var temp = EndCall;
+
+            if (temp != null)
             {
-                OfflineMode(sender, arg);
-                StationIncomingRequest = null;
+                temp(sender, arg);
             }
-            IsOnLine = false;
+
+            else
+                Console.WriteLine("Terminal is not connected station!");
+        }
+
+
+        public void Call(Terminal target)
+        {
+                Request request = new Request() { Target = target, Sourse= this };
+                Console.WriteLine("Terminal number: {0}  calls to the number: {1}",
+                          Number, target.Number);
+                    OnCallFrom(this, request);
+        }
+
+        public void Answer()
+        {
+           OnAcceptCall(this, null);
+        }
+
+        public void Drop()
+        {
+            OnEndCall(this, null);
+        }
+
+        public bool IsPortOnStation()
+        {       
+            OnRegisterTerminal(this, null);
+            return true;
         }
 
         public event EventHandler Connected;
 
         protected virtual void OnConnected(object sender, EventArgs arg)
         {
-            if (Connected != null)
+            var temp = Connected;
+            if (temp != null)
             {
-                Connected(sender, arg);
-            }
-        }
-
-        public event EventHandler DisConnected;
-        protected virtual void OnDisConnected(object sender, EventArgs arg)
-        {
-            if (DisConnected != null)
-            {
-                DisConnected(sender, arg);
-            }
-        }
-
-        public void Call(PhoneNumber target)
-        {
-            if (!IsOnLine)
-            {
-                OnOnlineMode(this, null);
-                OnOutcomingCall(this, target);
-
-            }
-        }
-
-        public void Drop()
-        {
-            if (StationIncomingRequest != null)
-            {
-                OnIncomingRespond(this, new Respond() { Source = Number, State = RespondState.Drop, Request = StationIncomingRequest });
-            }
-            if (IsOnLine)
-            {
-                OnOfflineMode(this, null);
-
-            }
-        }
-
-        public void Answer()
-        {
-            if (!IsOnLine && StationIncomingRequest != null)
-            {
-                OnOnlineMode(this, null);
-                OnIncomingRespond(this, new Respond() { Source = Number, State = RespondState.Accept, Request = StationIncomingRequest });
-
+                temp(sender, arg);
             }
         }
 
@@ -143,32 +129,24 @@ namespace PhoneStation
             OnConnected(this, null);
         }
 
-        public void DisConnect()
+        //public void DisConnect()
+        //{
+        //    OnConnected(this, null);
+        //}
+
+        public override string ToString()
         {
-            Drop();
-            OnDisConnected(this, null);
+            return Convert.ToString(Number);
         }
 
-        public virtual void RegisterEventHandlersForPort(Port port)
-        {
-            port.StateChanged += (sender, state) =>
-            {
-                if (IsOnLine && state == PortState.Free)
-                {
-                    this.OnOfflineMode(sender, null);
-                }
-            };
-        }
 
         public void ClearEvents()
         {
-            this.OutcomingCall = null;
-            this.IncomingRequest = null;
-            this.IncomingRespond = null;
-            this.OnlineMode = null;
-            this.OfflineMode = null;
-            this.Connected = null;
-            this.DisConnected = null;
+            this.CallFrom = null;
+            this.RegisterTerminal = null;
+            this.AcceptCall = null;
+            this.EndCall = null;
         }
+           
     }
 }
