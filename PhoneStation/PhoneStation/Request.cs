@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 
 namespace PhoneStation
 {
-    public class Request:EventArgs
+    public class Request
     {
         public Terminal Target { get; set; }
-        public Terminal Sourse { get; set; }
+      
     }
 }

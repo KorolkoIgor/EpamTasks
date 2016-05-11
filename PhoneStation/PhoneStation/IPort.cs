@@ -9,6 +9,7 @@ namespace PhoneStation
     {
         PortState State { get; }
         event EventHandler StateChanged;
+        void RegisterEventHandlersForPort(Terminal terminal);
         void ClearEvents();
     }
 }

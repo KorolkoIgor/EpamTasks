@@ -13,21 +13,13 @@ namespace PhoneStation
         public CallHistory callHistory;
  
 
-        public Terminal(PhoneNumber abonentNumber, Station station)   
+        public Terminal(PhoneNumber abonentNumber)
         {
             Number = abonentNumber;
-         
-            RegisterTerminal += station.TerminalRegister;
-           
-           if (IsPortOnStation())
-            {
-                CallFrom += station.TerminalCall;
-                AcceptCall += station.TerminalAnswer;
-                EndCall += station.TerminalEndCall;
-            }
+          
         }
 
-        public event EventHandler<Request> CallFrom;
+       public event EventHandler<Request> CallFrom;
 
         protected virtual void OnCallFrom(object sender, Request request)
         {
@@ -37,26 +29,10 @@ namespace PhoneStation
             {
                 temp(sender, request);
             }
-
             else
                 Console.WriteLine("Terminal is not connected station!");
         }
 
-
-        public event EventHandler RegisterTerminal;
-
-        protected virtual void OnRegisterTerminal(object sender, EventArgs arg)
-        {
-            var temp = RegisterTerminal;
-
-            if (temp != null)
-            {
-                temp(sender, arg);
-            }
-
-            else
-                Console.WriteLine("Terminal is not registered!");
-        }
 
         public event EventHandler AcceptCall;
 
@@ -91,7 +67,7 @@ namespace PhoneStation
 
         public void Call(Terminal target)
         {
-                Request request = new Request() { Target = target, Sourse= this };
+            Request request = new Request() { Target = target };
                 Console.WriteLine("Terminal number: {0}  calls to the number: {1}",
                           Number, target.Number);
                     OnCallFrom(this, request);
@@ -107,32 +83,8 @@ namespace PhoneStation
             OnEndCall(this, null);
         }
 
-        public bool IsPortOnStation()
-        {       
-            OnRegisterTerminal(this, null);
-            return true;
-        }
-
-        public event EventHandler Connected;
-
-        protected virtual void OnConnected(object sender, EventArgs arg)
-        {
-            var temp = Connected;
-            if (temp != null)
-            {
-                temp(sender, arg);
-            }
-        }
-
-        public void Connect()
-        {
-            OnConnected(this, null);
-        }
-
-        //public void DisConnect()
-        //{
-        //    OnConnected(this, null);
-        //}
+      
+    
 
         public override string ToString()
         {
@@ -143,7 +95,6 @@ namespace PhoneStation
         public void ClearEvents()
         {
             this.CallFrom = null;
-            this.RegisterTerminal = null;
             this.AcceptCall = null;
             this.EndCall = null;
         }

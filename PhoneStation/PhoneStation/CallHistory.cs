@@ -5,7 +5,7 @@ using System.Text;
 
 namespace PhoneStation
 {
-    public class CallHistory:EventArgs
+    public class CallHistory
     {
         public Terminal Source { get; set; }
         public Terminal Target { get; set; }
