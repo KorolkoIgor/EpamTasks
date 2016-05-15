@@ -47,13 +47,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BillingSystem.cs" />
-    <Compile Include="Client.cs" />
-    <Compile Include="Contract.cs" />
-    <Compile Include="CostCallHistory.cs" />
-    <Compile Include="IBillingPlan.cs" />
-    <Compile Include="PlanEconom.cs" />
-    <Compile Include="PlanStandart.cs" />
+    <Compile Include="BillingRegistration\BillingSystem.cs" />
+    <Compile Include="BillingRegistration\Client.cs" />
+    <Compile Include="BillingRegistration\Contract.cs" />
+    <Compile Include="BillingRegistration\CostCallHistory.cs" />
+    <Compile Include="BillingPlan\IBillingPlan.cs" />
+    <Compile Include="BillingPlan\PlanEconom.cs" />
+    <Compile Include="BillingPlan\PlanStandart.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
