@@ -5,6 +5,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SalesDataModel", "SalesData
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DAL", "DAL\DAL.csproj", "{BF0C82FC-3C69-4C01-AA76-162C209D5082}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BL", "BL\BL.csproj", "{18356460-33AB-4C45-966B-34D71D9D3202}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutoActApp", "AutoActApp\AutoActApp.csproj", "{49415AE7-7BA1-417C-B216-B1C4A5D25E39}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -19,6 +23,14 @@ Global
 		{BF0C82FC-3C69-4C01-AA76-162C209D5082}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BF0C82FC-3C69-4C01-AA76-162C209D5082}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BF0C82FC-3C69-4C01-AA76-162C209D5082}.Release|Any CPU.Build.0 = Release|Any CPU
+		{18356460-33AB-4C45-966B-34D71D9D3202}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{18356460-33AB-4C45-966B-34D71D9D3202}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{18356460-33AB-4C45-966B-34D71D9D3202}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{18356460-33AB-4C45-966B-34D71D9D3202}.Release|Any CPU.Build.0 = Release|Any CPU
+		{49415AE7-7BA1-417C-B216-B1C4A5D25E39}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{49415AE7-7BA1-417C-B216-B1C4A5D25E39}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{49415AE7-7BA1-417C-B216-B1C4A5D25E39}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{49415AE7-7BA1-417C-B216-B1C4A5D25E39}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
