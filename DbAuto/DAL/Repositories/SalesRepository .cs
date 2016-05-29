@@ -13,7 +13,7 @@ namespace DAL.Repositories
     {
         public readonly ICollection<SalesDTO> _saleslist = new List<SalesDTO>();
 
-       public Sales ToEntity(SalesDTO sourse)
+        public Sales ToEntity(SalesDTO sourse)
         {
             var sales = new Sales()
             {
@@ -26,10 +26,10 @@ namespace DAL.Repositories
             return sales;
         }
 
-        private SalesDTO ToObject(SalesDataModel.Sales source)
+        private SalesDTO ToObject(Sales source)
         {
-      return new SalesDTO(source.Date, source.ManagerId, source.ClientId, source.GoodsId, source.Cost);
-            
+            return new SalesDTO(source.Date, source.ManagerId, source.ClientId, source.GoodsId, source.Cost);
+
         }
 
         public void Add(SalesDTO item)
@@ -52,15 +52,15 @@ namespace DAL.Repositories
                 }
             }
         }
-       
+
         public int Count
         {
             get { return _saleslist.Count; }
         }
-              
+
         public void Remove(SalesDTO item)
         {
-             _saleslist.Remove(item);
+            _saleslist.Remove(item);
         }
 
         public void SaveSales()

@@ -12,14 +12,12 @@ namespace DAL.Repositories
     {
         private Manager ToEntity(ManagerDTO source)
         {
-            return new Manager() { Id = source.Id, FirstName = source.FirstName, 
-                                  SecondName = source.SecondName };
+            return new Manager() { Id = source.Id, FirstName = source.FirstName, SecondName = source.SecondName };
         }
 
         private ManagerDTO ToObject(Manager source)
         {
-            return new ManagerDTO() { Id = source.Id, FirstName = source.FirstName, 
-                                      SecondName = source.SecondName };
+            return new ManagerDTO() { Id = source.Id, FirstName = source.FirstName, SecondName = source.SecondName };
         }
 
         public void Add(ManagerDTO item)
@@ -34,7 +32,7 @@ namespace DAL.Repositories
             context.ManagerSet.Remove(e);
         }
 
-       public IEnumerable<ManagerDTO> Items
+        public IEnumerable<ManagerDTO> Items
         {
             get
             {

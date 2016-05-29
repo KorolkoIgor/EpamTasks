@@ -10,7 +10,7 @@ namespace DAL.Repositories
     {
         void Add(T item);
         void Remove(T item);
-       IEnumerable<T> Items { get; }
+        IEnumerable<T> Items { get; }
         void SaveSales();
         int Count { get; }
     }

@@ -6,27 +6,26 @@ using System.Text;
 
 namespace DAL.Repositories
 {
-    public  class AbstractRepository:IDisposable
-    {
-        private bool disposed=false;
+    public class AbstractRepository:IDisposable
+    { 
        
-        protected SalesDataModel.DataModelContainer1 context = new SalesDataModel.DataModelContainer1();
+        protected DataModelContainer1 context = new DataModelContainer1();
        
         public void Dispose()
         {
             Dispose(true);
             GC.SuppressFinalize(this);
         }
-            
+        private bool disposed = false;
         protected virtual void Dispose(bool disposing)
         {
-            if (!disposed)
+            if (!this.disposed)
             {
                 if (disposing)
                 {
                     context.Dispose();
                 }
-                disposed = true;
+                this.disposed = true;
             }
         }
 
@@ -35,4 +34,4 @@ namespace DAL.Repositories
             Dispose(false);
         }
     }
-}
+ }

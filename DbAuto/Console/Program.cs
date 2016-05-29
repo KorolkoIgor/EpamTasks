@@ -18,9 +18,10 @@ namespace ConsoleWatcher
             watcher.EnableRaisingEvents = true;
             watcher.Filter = "*.csv";
             watcher.IncludeSubdirectories = true;
-            watcher.NotifyFilter = ((System.IO.NotifyFilters)((System.IO.NotifyFilters.FileName | System.IO.NotifyFilters.DirectoryName)));
+            watcher.NotifyFilter = ((NotifyFilters)((NotifyFilters.FileName | NotifyFilters.DirectoryName)));
+            Console.WriteLine(" Watcher joined!");
             watcher.Created += fsn.FileSystemWatcher_Created;
-             Console.WriteLine(" Watcher joined!");
+           
             Console.ReadLine();
 
             watcher.Created -= fsn.FileSystemWatcher_Created;
@@ -38,7 +39,7 @@ namespace ConsoleWatcher
 
         public void FileSystemWatcher_Created(object sender, FileSystemEventArgs e)
         {
-            dataProcessor.StartProcessing(e.FullPath);
+             dataProcessor.StartProcessing(e.FullPath);
         }
 
     }

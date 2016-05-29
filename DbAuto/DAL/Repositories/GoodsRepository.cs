@@ -10,7 +10,8 @@ namespace DAL.Repositories
 {
     public class GoodsRepository : AbstractRepository, IRepository<GoodsDTO>
     {
-       private Goods ToEntity(GoodsDTO source)
+       
+        private Goods ToEntity(GoodsDTO source)
         {
             return new Goods() { Id = source.Id, Name = source.Name };
         }
@@ -31,7 +32,6 @@ namespace DAL.Repositories
             var e = this.ToEntity(item);
             context.GoodsSet.Remove(e);
         }
-
 
         public IEnumerable<GoodsDTO> Items
         {

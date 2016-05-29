@@ -10,7 +10,6 @@ namespace BL.DateParser
     {
         public string FilePath { get; set; }
 
-        
         protected override Stream GetStream()
         {
             return new FileStream(FilePath, FileMode.Open);

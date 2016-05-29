@@ -8,16 +8,14 @@ namespace DAL.Models
 {
     public class SalesDTO
     {
-       // private readonly  DataModelContainer1 _dbServiceEntities = new  DataModelContainer1();
-        
-        public int Id { get; set; }
+      
         public System.DateTime Date { get; set; }
         public int ClientId { get; set; }
         public int GoodsId { get; set; }
         public int ManagerId { get; set; }
         public double Cost { get; set; }
-       
-        
+
+
         public SalesDTO(DateTime date, int clientId, int goodsId, int managerId, double cost)
         {
             Date = date;
@@ -27,5 +25,7 @@ namespace DAL.Models
             Cost = cost;
         }
 
-     }
+    }
+    
+       
 }

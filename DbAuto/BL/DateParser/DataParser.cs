@@ -21,14 +21,15 @@ namespace BL.DateParser
 
         public IEnumerable<string[]> GetRecords()
         {
-                this.Source = GetStream();
-                using (StreamReader reader = new StreamReader(Source))
+            this.Source = GetStream();
+            using (StreamReader reader = new StreamReader(Source))
+            {
+                while (!reader.EndOfStream)
                 {
-                    while (!reader.EndOfStream)
-                    {
-                        yield return reader.ReadLine().Split(Delimiter, StringSplitOptions.None);
-                    }
+                    yield return reader.ReadLine().Split(Delimiter, StringSplitOptions.None);
                 }
+            }
+
         }
 
         protected abstract Stream GetStream();
