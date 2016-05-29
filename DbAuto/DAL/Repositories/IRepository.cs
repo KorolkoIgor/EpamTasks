@@ -10,9 +10,8 @@ namespace DAL.Repositories
     {
         void Add(T item);
         void Remove(T item);
-        void Update(T item);
-        IEnumerable<T> Items { get; }
-        void SaveChanges();
+       IEnumerable<T> Items { get; }
+        void SaveSales();
         int Count { get; }
     }
 }

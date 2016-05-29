@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 
@@ -9,9 +10,10 @@ namespace BL.DateParser
     {
         public string FilePath { get; set; }
 
-        protected override System.IO.Stream GetStream()
+        
+        protected override Stream GetStream()
         {
-            return new System.IO.FileStream(FilePath, System.IO.FileMode.Open);
+            return new FileStream(FilePath, FileMode.Open);
         }
 
         public CsvParser(string filePath, char[] delimiter)

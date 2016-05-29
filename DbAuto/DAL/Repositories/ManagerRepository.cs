@@ -3,41 +3,38 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Data.Entity;
+using DAL.Models;
+using SalesDataModel;
 
 namespace DAL.Repositories
 {
-    public class ManagerRepository : IRepository<DAL.Models.Manager>
+    public class ManagerRepository : AbstractRepository, IRepository<ManagerDTO>
     {
-        private SalesDataModel.DataModelContainer1 context = new SalesDataModel.DataModelContainer1();
-
-        private SalesDataModel.Manager ToEntity(DAL.Models.Manager source)
+        private Manager ToEntity(ManagerDTO source)
         {
-            return new SalesDataModel.Manager() { Id = source.Id, FirstName = source.FirstName, SecondName = source.SecondName };
+            return new Manager() { Id = source.Id, FirstName = source.FirstName, 
+                                  SecondName = source.SecondName };
         }
 
-        private DAL.Models.Manager ToObject(SalesDataModel.Manager source)
+        private ManagerDTO ToObject(Manager source)
         {
-            return new DAL.Models.Manager() { Id = source.Id, FirstName = source.FirstName, SecondName = source.SecondName };
+            return new ManagerDTO() { Id = source.Id, FirstName = source.FirstName, 
+                                      SecondName = source.SecondName };
         }
 
-        public void Add(Models.Manager item)
+        public void Add(ManagerDTO item)
         {
             var e = this.ToEntity(item);
             context.ManagerSet.Add(e);
         }
 
-        public void Remove(Models.Manager item)
+        public void Remove(ManagerDTO item)
         {
             var e = this.ToEntity(item);
             context.ManagerSet.Remove(e);
         }
 
-        public void Update(Models.Manager item)
-        {
-            throw new NotImplementedException();
-        }
-
-        public IEnumerable<Models.Manager> Items
+       public IEnumerable<ManagerDTO> Items
         {
             get
             {
@@ -48,7 +45,7 @@ namespace DAL.Repositories
             }
         }
 
-        public void SaveChanges()
+        public void SaveSales()
         {
             context.SaveChanges();
         }

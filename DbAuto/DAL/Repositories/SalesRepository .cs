@@ -4,58 +4,45 @@ using System.Linq;
 using System.Text;
 using System.Data.Entity;
 using System.Data.Entity.Infrastructure;
+using DAL.Models;
+using SalesDataModel;
 
 namespace DAL.Repositories
 {
-    public class SalesRepository : IRepository<DAL.Models.Sales>
+    public class SalesRepository : AbstractRepository, IRepository<SalesDTO>
     {
-        private SalesDataModel.DataModelContainer1 context = new SalesDataModel.DataModelContainer1();
-        //private SalesDataModel.DataModelContainer1 contextt = new SalesDataModel.DataModelContainer();
-        private SalesDataModel.Sales ToEntity(DAL.Models.Sales source)
+        public readonly ICollection<SalesDTO> _saleslist = new List<SalesDTO>();
+
+       public Sales ToEntity(SalesDTO sourse)
         {
-            return new SalesDataModel.Sales()
+            var sales = new Sales()
             {
-                Id=source.Id,
-                Date = source.Date,
-                ManagerId = source.ManagerId,
-                ClientId = source.ClientId,
-                GoodsId = source.GoodsId,
-                Cost = source.Cost
+                Date = sourse.Date,
+                ClientId = sourse.ClientId,
+                GoodsId = sourse.GoodsId,
+                ManagerId = sourse.ManagerId,
+                Cost = sourse.Cost
             };
+            return sales;
         }
 
-        private DAL.Models.Sales ToObject(SalesDataModel.Sales source)
+        private SalesDTO ToObject(SalesDataModel.Sales source)
         {
-            return new DAL.Models.Sales()
-            {
-
-                Id=source.Id,
-                Date = source.Date,
-                ManagerId =  source.ManagerId, 
-                ClientId =source.ClientId,
-                GoodsId =  source.GoodsId,
-                Cost = source.Cost
-            };
+      return new SalesDTO(source.Date, source.ManagerId, source.ClientId, source.GoodsId, source.Cost);
+            
         }
 
-        public void Add(Models.Sales item)
+        public void Add(SalesDTO item)
         {
-            var e = this.ToEntity(item);
-            context.SalesSet.Add(e);
+            _saleslist.Add(item);
         }
 
-        public void Remove(Models.Sales item)
+        public void Clear()
         {
-            var e = this.ToEntity(item);
-            context.SalesSet.Remove(e);
+            _saleslist.Clear();
         }
 
-        public void Update(Models.Sales item)
-        {
-            throw new NotImplementedException();
-        }
-
-        public IEnumerable<Models.Sales> Items
+        public IEnumerable<SalesDTO> Items
         {
             get
             {
@@ -65,14 +52,23 @@ namespace DAL.Repositories
                 }
             }
         }
-
-        public void SaveChanges()
+       
+        public int Count
         {
-            //contextt.SalesSet = context.SalesSet;
+            get { return _saleslist.Count; }
+        }
+              
+        public void Remove(SalesDTO item)
+        {
+             _saleslist.Remove(item);
+        }
+
+        public void SaveSales()
+        {
             try
             {
-
-               // contextt.SaveChanges();
+                var list = _saleslist.Select(sales => ToEntity(sales)).ToList();
+                context.SalesSet.AddRange(list);
                 context.SaveChanges();
             }
             catch (DbUpdateException e)
@@ -81,9 +77,5 @@ namespace DAL.Repositories
             }
         }
 
-        public int Count
-        {
-            get { return this.context.SalesSet.Count(); }
-        }
     }
 }

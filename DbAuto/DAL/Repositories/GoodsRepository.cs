@@ -3,41 +3,37 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Data.Entity;
+using DAL.Models;
+using SalesDataModel;
 
 namespace DAL.Repositories
 {
-    public class GoodsRepository : IRepository<DAL.Models.Goods>
+    public class GoodsRepository : AbstractRepository, IRepository<GoodsDTO>
     {
-        private SalesDataModel.DataModelContainer1 context = new SalesDataModel.DataModelContainer1();
-
-        private SalesDataModel.Goods ToEntity(DAL.Models.Goods source)
+       private Goods ToEntity(GoodsDTO source)
         {
-            return new SalesDataModel.Goods() { Id = source.Id, Name = source.Name };
+            return new Goods() { Id = source.Id, Name = source.Name };
         }
 
-        private DAL.Models.Goods ToObject(SalesDataModel.Goods source)
+        private GoodsDTO ToObject(Goods source)
         {
-            return new DAL.Models.Goods() { Id = source.Id, Name = source.Name };
+            return new GoodsDTO() { Id = source.Id, Name = source.Name };
         }
 
-        public void Add(Models.Goods item)
+        public void Add(GoodsDTO item)
         {
             var e = this.ToEntity(item);
             context.GoodsSet.Add(e);
         }
 
-        public void Remove(Models.Goods item)
+        public void Remove(GoodsDTO item)
         {
             var e = this.ToEntity(item);
             context.GoodsSet.Remove(e);
         }
 
-        public void Update(Models.Goods item)
-        {
-            throw new NotImplementedException();
-        }
 
-        public IEnumerable<Models.Goods> Items
+        public IEnumerable<GoodsDTO> Items
         {
             get
             {
@@ -48,7 +44,7 @@ namespace DAL.Repositories
             }
         }
 
-        public void SaveChanges()
+        public void SaveSales()
         {
             this.context.SaveChanges();
         }

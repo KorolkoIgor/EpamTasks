@@ -3,41 +3,36 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Data.Entity;
+using DAL.Models;
+using SalesDataModel;
 
 namespace DAL.Repositories
 {
-    public class ClientRepository : IRepository<DAL.Models.Client>
+    public class ClientRepository : AbstractRepository, IRepository<ClientDTO>
     {
-        private SalesDataModel.DataModelContainer1 context = new SalesDataModel.DataModelContainer1();
-
-        private SalesDataModel.Client ToEntity(DAL.Models.Client source)
+        private Client ToEntity(ClientDTO source)
         {
-            return new SalesDataModel.Client() { Id = source.Id, Name = source.Name };
+            return new Client() { Id = source.Id, Name = source.Name };
         }
 
-        private DAL.Models.Client ToObject(SalesDataModel.Client source)
+        private ClientDTO ToObject(Client source)
         {
-            return new DAL.Models.Client() { Id = source.Id, Name = source.Name };
+            return new ClientDTO() { Id = source.Id, Name = source.Name };
         }
 
-        public void Add(Models.Client item)
+        public void Add(ClientDTO item)
         {
             var e = this.ToEntity(item);
             context.ClientSet.Add(e);
         }
 
-        public void Remove(Models.Client item)
+        public void Remove(ClientDTO item)
         {
             var e = this.ToEntity(item);
             context.ClientSet.Remove(e);
         }
 
-        public void Update(Models.Client item)
-        {
-            throw new NotImplementedException();
-        }
-
-        public IEnumerable<Models.Client> Items
+        public IEnumerable<ClientDTO> Items
         {
             get
             {
@@ -48,7 +43,7 @@ namespace DAL.Repositories
             }
         }
 
-        public void SaveChanges()
+        public void SaveSales()
         {
             this.context.SaveChanges();
         }
