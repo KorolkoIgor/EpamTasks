@@ -1,0 +1,28 @@
+﻿@{
+    ViewBag.Title = "CreateUsers";
+}
+
+<h2>Create</h2>
+<div class="spacerBody">
+    <p>&nbsp;</p>
+    @Html.ActionLink("Roles", "RoleIndex") | @Html.ActionLink("Add Role to User", "RoleAddToUser")
+<h2>User Create</h2>
+
+@using(Html.BeginForm()){
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <div>
+    User name</div>
+    <p>
+        @Html.TextBox("userName")
+    </p>
+    <p>
+        @Html.TextBox("password")
+    </p>
+      <p>
+        @Html.TextBox("mail")
+    </p>
+    <input type="submit" value="Save" />
+}
+    </div>

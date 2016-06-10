@@ -1,0 +1,41 @@
+﻿@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+ <h2>Index</h2>
+@using System.Web.Security; 
+@using Sales.Models
+@model IEnumerable<UserProfile>
+
+    
+
+ <div class="spacerBody">
+    <p>&nbsp;</p>
+    @Html.ActionLink("Create New Role", "RoleCreate") | @Html.ActionLink("Roles", "RoleIndex")| @Html.ActionLink("Add Role to User", "RoleAddToUser")</div>
+
+    <h2>Users list</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>id</th>
+                <th>name</th>
+                <th>roles</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var user in Model)
+            {
+                <tr>
+                    <td>@user.UserId</td>
+                    <td>@user.UserName</td>
+                    <td>@foreach (var s in Roles.GetRolesForUser(user.UserName))
+                        {   
+                          @s} </td>
+                    <td> @Html.ActionLink("Delete", "DeleteUsers", new { UserName=user.UserName })     
+
+                    </td>
+                  </tr>
+            }
+        </tbody>
+    </table>
