@@ -337,6 +337,11 @@
     <Content Include="Views\Managers\Edit.cshtml" />
     <Content Include="Views\Managers\Create.cshtml" />
     <Content Include="Views\Managers\Delete.cshtml" />
+    <Content Include="Views\Sales\Index.cshtml" />
+    <Content Include="Views\Sales\SalesFiltered.cshtml" />
+    <Content Include="Views\Sales\SalesTable.cshtml" />
+    <Content Include="Views\Sales\Delete.cshtml" />
+    <Content Include="Views\Sales\Create.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

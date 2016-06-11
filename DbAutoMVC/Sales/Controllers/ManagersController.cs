@@ -60,20 +60,7 @@ namespace Sales.Controllers
             return View(manager);
         }
 
-        //// GET: Managers/Delete/5
-        //public ActionResult Delete(int? id)
-        //{
-        //    if (id == null)
-        //    {
-        //        return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-        //    }
-        //    ManagerDTO manager = managerRep.Items.FirstOrDefault(x => x.Id == id);
-        //    if (manager == null)
-        //    {
-        //        return HttpNotFound();
-        //    }
-        //    return View(manager);
-        //}
+   
 
         
         public ActionResult Delete(int? id)

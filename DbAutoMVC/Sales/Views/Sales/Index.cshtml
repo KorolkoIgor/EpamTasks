@@ -1,0 +1,106 @@
+﻿ @{
+    ViewBag.Title = "Sales statistics";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Sales statistics</h2>
+
+
+<fieldset>
+    <legend></legend>
+    <table class="table">
+        <tr>
+            <th>
+                Manager
+            </th>
+            <th>
+                Client
+            </th>
+            <th>
+                Product
+            </th>
+            <th>
+                Date From
+            </th>
+            <th>
+                Date To
+            </th>
+
+        </tr>
+
+        <tr>
+            <td>
+                @Html.DropDownList("ManagerId", (SelectList)ViewBag.ManagersList, "All managers")
+            </td>
+            <td>
+                @Html.DropDownList("ClientId", (SelectList)ViewBag.ClientsList, "All clients")
+            </td>
+            <td>
+                @Html.DropDownList("ProductId", (SelectList)ViewBag.GoodsList, "All goods")
+            </td>
+            <td>
+                <input type="date" id="datefrom" > 
+            </td>
+            <td>
+                <input type="date" id="dateto" > 
+            </td>
+
+        </tr>
+    </table>
+</fieldset>
+
+
+<div id="salesfiltered">
+    @{Html.RenderAction("SalesFiltered", "Sales"); }
+</div>
+
+
+<script type="text/javascript">
+    $(document).ready(function ()
+    {
+        $("#ManagerId").change(function () {
+            setfilter();
+        });
+
+        $("#ClientId").change(function () {
+            setfilter();
+        });
+
+        $("#ProductId").change(function () {
+            setfilter();
+        });
+
+        $("#datefrom").change(function () {
+            setfilter();
+        });
+
+        $("#dateto").change(function () {
+            setfilter();
+        });
+
+        function setfilter() {
+            $.ajax({
+                type: 'GET',
+                url: "@Url.Content("/Sales/SalesFiltered/")",
+                dataType: 'html',
+                data: {
+                    managerId: $("#ManagerId option:selected").val(),
+                    clientId: $("#ClientId option:selected").val(),
+                    productId: $("#ProductId option:selected").val(),
+                    dateFrom: $("#datefrom").val(),
+                    dateTo: $("#dateto").val(),
+                },
+                success: function (result) {
+                    $('#salesfiltered').html(result)
+                },
+                error: function (xhr, ajaxOptions, thrownError) {
+                    alert(thrownError);
+                }
+            });
+        }
+    });
+</script>
+
+ 
+
+

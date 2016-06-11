@@ -31,6 +31,9 @@ namespace DAL.Repositories
         public void Remove(ManagerDTO item)
         {
             var e = this.ToEntity(item);
+           // context.ManagerSet.Attach(e);
+           //// context.ManagerSet.Remove(e);
+           // context.Entry(e).State = EntityState.Deleted;
             context.ManagerSet.Remove(e);
         }
 

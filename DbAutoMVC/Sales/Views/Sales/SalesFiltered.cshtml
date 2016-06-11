@@ -1,0 +1,68 @@
+﻿ @model IEnumerable<Sales.Models.SalesViewModel>
+
+
+@Scripts.Render("~/bundles/jquery")
+
+ 
+<table id="table_id" class="table">
+   <thead>
+     <tr>
+          @*<th>
+            @Html.DisplayNameFor(model => model.Id)
+        </th>*@
+        <th>
+            @Html.DisplayNameFor(model => model.Date)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Manager)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Client)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Goods)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Cost)
+        </th>
+        <th></th>
+    </tr>
+</thead>
+    <tbody>
+    @foreach (var item in Model)
+    {
+        <tr>
+           @* <td>
+                @Html.DisplayFor(modelItem => item.Id)
+            </td>*@
+            <td>
+                @Html.DisplayFor(modelItem => item.Date)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Manager.FirstName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Client.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Goods.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Cost)
+            </td>
+            <td>
+              @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+                </td>
+             <td>
+              @Html.ActionLink("Edit", "Edit", new { id=item.Id })
+                </td>
+        </tr>
+    }
+    </tbody>
+</table>
+
+@if (User.IsInRole("Admin"))
+                {
+    <p><a class="btn btn-default" href=@Url.Action("Create", "Sales")>Add Sales &raquo;</a></p>
+                }
+

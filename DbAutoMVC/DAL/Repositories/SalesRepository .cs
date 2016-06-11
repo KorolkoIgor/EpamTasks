@@ -37,8 +37,16 @@ namespace DAL.Repositories
              );
            
        }
-            
-       
+
+        public void Update(SalesDTO item)
+        {
+            var itm = context.SalesSet.FirstOrDefault(x => x.Id == item.Id);
+            if (itm != null)
+            {
+                itm = ToEntity(item);
+                context.Entry(itm).State = EntityState.Modified;
+            }
+        }
 
         public void Add(SalesDTO item)
         {
@@ -65,14 +73,22 @@ namespace DAL.Repositories
         {
             get { return _saleslist.Count; }
         }
-              
-      
-       public void Remove(SalesDTO item)
+
+
+        public void Remove(SalesDTO item)
         {
-            var e = this.ToEntity(item);
-            var s = context.SalesSet.FirstOrDefault(x => x.Id == e.Id);
-            context.SalesSet.Remove(e);
-        }
+           
+                var e = this.ToEntity(item);
+
+                //context.SalesSet.Attach(e);
+                //var s = context.SalesSet.FirstOrDefault(x => x.Id == e.Id);
+                context.SalesSet.Remove(e);
+          }
+
+
+
+
+
 
         public void SaveSales()
         {
