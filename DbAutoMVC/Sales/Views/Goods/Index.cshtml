@@ -1,0 +1,91 @@
+﻿@model IEnumerable<DAL.Models.GoodsDTO>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Name)
+        </td>
+        @if(User.IsInRole("Admin"))
+        {
+            <td>
+            
+                 <button type="button" onclick="onGoodsEdit(@item.Id)">Edit</button> |
+                        <button type="button" onclick="onGoodsDetails(@item.Id)">Details</button>  |
+            </td>
+              
+        }
+    </tr>
+}
+
+</table>
+@if (User.IsInRole("Admin"))
+                {
+    <p> <button type="button" onclick="onGoodsCreate()">Create</button> </p>
+        @*<a class="btn btn-default" href=@Url.Action("Create", "Goods")>Add Goods &raquo;</a></p>*@
+                }
+
+@*<div>
+     @Html.ActionLink("Back to List", "Index")
+</div>*@
+
+<section id="goodsDetailsSection">
+    <div id="goodsDetails">
+    </div>
+</section>
+
+
+ 
+<script type="text/javascript">
+    onGoodsDetails = function (goodId) {
+        $.get('@Url.Action("Details", "Goods")', {id:goodId }, function(data, textStatus, XHR)
+        {
+            $("#goodsDetails").html(data);
+            showGoodDetails();
+        })
+    }
+
+    onGoodsEdit = function (goodId) {
+        $.get('@Url.Action("Edit", "Goods")', { id: goodId }, function (data, textStatus, XHR) {
+            $("#goodsDetails").html(data);
+            showGoodDetails();
+        })
+
+    }
+
+    onGoodsCreate = function () {
+        $.get('@Url.Action("Create", "Goods")',  function (data, textStatus, XHR) {
+            $("#goodsDetails").html(data);
+            showGoodDetails();
+        })
+
+    }
+
+
+
+
+    showGoodDetails = function () {
+        $("#goodsDetails").show();
+    }
+    hideBlogDetails = function () {
+        $("#goodsDetails").hide();
+        $("#goodsDetails").html(null);
+    }
+</script>
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

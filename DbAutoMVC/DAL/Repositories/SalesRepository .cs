@@ -38,14 +38,7 @@ namespace DAL.Repositories
            
        }
             
-            
-            
-            
-            
-            //  {
-      //return new SalesDTO(source.Date, source.ManagerId, source.ClientId, source.GoodsId, source.Cost);
-            
-      //  }
+       
 
         public void Add(SalesDTO item)
         {
@@ -73,10 +66,7 @@ namespace DAL.Repositories
             get { return _saleslist.Count; }
         }
               
-        //public void Remove(SalesDTO item)
-        //{
-        //     _saleslist.Remove(item);
-        //}
+      
        public void Remove(SalesDTO item)
         {
             var e = this.ToEntity(item);
@@ -86,16 +76,11 @@ namespace DAL.Repositories
 
         public void SaveSales()
         {
-            //try
-            //{
+            
                 var list = _saleslist.Select(sales => ToEntity(sales)).ToList();
                 context.SalesSet.AddRange(list);
                 context.SaveChanges();
-            //}
-            //catch (DbUpdateException e)
-            //{
-            //    Console.WriteLine(e.Message);
-            //}
+         
         }
 
     }

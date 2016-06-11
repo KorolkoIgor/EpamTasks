@@ -39,6 +39,8 @@ namespace DAL.Repositories
             var itm = context.ManagerSet.FirstOrDefault(x => x.Id == item.Id);
             if (itm != null)
             {
+                itm.FirstName = item.FirstName;
+                itm.SecondName = item.SecondName;
                 context.Entry(itm).State = EntityState.Modified;
             }
         }

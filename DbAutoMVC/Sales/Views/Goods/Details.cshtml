@@ -1,0 +1,37 @@
+﻿@model DAL.Models.GoodsDTO
+
+ <h2>Details</h2>
+
+<fieldset>
+    <legend>Blog</legend>
+
+    @using(Ajax.BeginForm( new AjaxOptions(){UpdateTargetId="", HttpMethod="Get"}))
+    {
+    <div class="display-label">
+      <h3>  @Html.DisplayNameFor(model => model.Name) </h3>
+    </div>
+    <div class="display-field">
+      <h3>  @Html.DisplayFor(model => model.Name)</h3>
+    </div>
+       
+        
+    }
+      <button type="button" onclick="hideBlogDetails()">Hide</button> 
+    
+   
+    
+<script type="text/javascript">
+    $("#hideButton").click(hideBlogDetails);
+
+      
+    hideBlogDetails = function () {
+        $("#goodsDetails").hide();
+        $("#goodsDetails").html(null);
+    }
+</script>
+
+</fieldset>
+<p>
+    @Html.ActionLink("Back to List", "Index")
+</p>
+
