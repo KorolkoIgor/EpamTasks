@@ -29,7 +29,6 @@ namespace Sales.Controllers
 
         // POST: Managers/Create
         [HttpPost]
-        //[ValidateAntiForgeryToken]
         public ActionResult Create(ManagerDTO manager)
         {
             if (ModelState.IsValid)

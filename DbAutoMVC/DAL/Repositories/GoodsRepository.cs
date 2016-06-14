@@ -8,8 +8,10 @@ using SalesDataModel;
 
 namespace DAL.Repositories
 {
-    public class GoodsRepository : AbstractRepository, IRepository<GoodsDTO>
+    public class GoodsRepository :  IRepository<GoodsDTO>
     {
+        public DataModelContainer1 context = new DataModelContainer1();
+
        private Goods ToEntity(GoodsDTO source)
         {
             return new Goods() { Id = source.Id, Name = source.Name };
@@ -47,10 +49,13 @@ namespace DAL.Repositories
         {
             get
             {
+                var good = new List<GoodsDTO>();
                 foreach (var g in this.context.GoodsSet)
                 {
-                    yield return this.ToObject(g);
+                    good.Add(ToObject(g));
+                  
                 }
+                return good;
             }
         }
 

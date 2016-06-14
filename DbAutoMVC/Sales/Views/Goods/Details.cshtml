@@ -3,7 +3,7 @@
  <h2>Details</h2>
 
 <fieldset>
-    <legend>Blog</legend>
+    <legend>Goods</legend>
 
     @using(Ajax.BeginForm( new AjaxOptions(){UpdateTargetId="", HttpMethod="Get"}))
     {
@@ -16,14 +16,13 @@
        
         
     }
-      <button type="button" onclick="hideBlogDetails()">Hide</button> 
+      <button  id="hideButton" type="button" onclick="hideBlogDetails()">Hide</button> 
     
    
     
 <script type="text/javascript">
-    $("#hideButton").click(hideBlogDetails);
+    //$("#hideButton").click(hideBlogDetails);
 
-      
     hideBlogDetails = function () {
         $("#goodsDetails").hide();
         $("#goodsDetails").html(null);

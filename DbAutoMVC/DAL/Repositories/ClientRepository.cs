@@ -8,8 +8,10 @@ using SalesDataModel;
 
 namespace DAL.Repositories
 {
-    public class ClientRepository : AbstractRepository, IRepository<ClientDTO>
+    public class ClientRepository :  IRepository<ClientDTO>
     {
+        public DataModelContainer1 context = new DataModelContainer1();
+
         private Client ToEntity(ClientDTO source)
         {
             return new Client() { Id = source.Id, Name = source.Name };
@@ -55,10 +57,14 @@ namespace DAL.Repositories
         {
             get
             {
+                var client = new List<ClientDTO>();
                 foreach (var c in this.context.ClientSet)
                 {
-                    yield return this.ToObject(c);
+
+                    client.Add(ToObject(c));
+                   // yield return this.ToObject(c);
                 }
+                return client;
             }
         }
 

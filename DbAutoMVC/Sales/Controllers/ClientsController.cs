@@ -45,7 +45,6 @@ namespace Sales.Controllers
 
         // POST: Clients/Create
         [HttpPost]
-        //[ValidateAntiForgeryToken]
         public ActionResult Create(ClientDTO client)
         {
             if (ModelState.IsValid)

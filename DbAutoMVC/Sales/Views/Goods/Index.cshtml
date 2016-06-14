@@ -5,7 +5,7 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Index</h2>
+<h2>Goods</h2>
 
 <table class="table">
     <tr>
@@ -36,12 +36,7 @@
 @if (User.IsInRole("Admin"))
                 {
     <p> <button type="button" onclick="onGoodsCreate()">Create</button> </p>
-        @*<a class="btn btn-default" href=@Url.Action("Create", "Goods")>Add Goods &raquo;</a></p>*@
-                }
-
-@*<div>
-     @Html.ActionLink("Back to List", "Index")
-</div>*@
+        
 
 <section id="goodsDetailsSection">
     <div id="goodsDetails">
@@ -74,9 +69,6 @@
         })
 
     }
-
-
-
 
     showGoodDetails = function () {
         $("#goodsDetails").show();

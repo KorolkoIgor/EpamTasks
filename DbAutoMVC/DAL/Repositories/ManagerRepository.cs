@@ -8,8 +8,10 @@ using SalesDataModel;
 
 namespace DAL.Repositories
 {
-    public class ManagerRepository : AbstractRepository, IRepository<ManagerDTO>
+    public class ManagerRepository : IRepository<ManagerDTO>
     {
+        public DataModelContainer1 context = new DataModelContainer1();
+
         private Manager ToEntity(ManagerDTO source)
         {
             return new Manager() { Id = source.Id, FirstName = source.FirstName, 
@@ -54,10 +56,12 @@ namespace DAL.Repositories
         {
             get
             {
+                var manager = new List<ManagerDTO>();
                 foreach (var m in this.context.ManagerSet)
                 {
-                    yield return this.ToObject(m);
+                    manager.Add(ToObject(m));
                 }
+                return manager;
             }
         }
 

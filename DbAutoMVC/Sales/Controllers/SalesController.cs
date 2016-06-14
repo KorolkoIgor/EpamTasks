@@ -128,9 +128,7 @@ namespace Sales.Controllers
             salesContext.Remove(sale);
             salesContext.SaveSales();
             return View();
-
-        
-            //return View();
+;
         }
 
        
@@ -141,7 +139,6 @@ namespace Sales.Controllers
 
         // POST: Managers/Create
         [HttpPost]
-        // [ValidateAntiForgeryToken]
         public ActionResult Create(SalesViewModel sale)
         {
             if (ModelState.IsValid)

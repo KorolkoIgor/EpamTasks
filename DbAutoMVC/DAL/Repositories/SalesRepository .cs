@@ -9,8 +9,10 @@ using SalesDataModel;
 
 namespace DAL.Repositories
 {
-    public class SalesRepository : AbstractRepository, IRepository<SalesDTO>
+    public class SalesRepository :  IRepository<SalesDTO>
     {
+        public DataModelContainer1 context = new DataModelContainer1();
+
         public readonly ICollection<SalesDTO> _saleslist = new List<SalesDTO>();
 
        public Sales ToEntity(SalesDTO sourse)
@@ -62,10 +64,12 @@ namespace DAL.Repositories
         {
             get
             {
+                var sales = new List<SalesDTO>();
                 foreach (var s in this.context.SalesSet)
                 {
-                    yield return this.ToObject(s);
+                    sales.Add(ToObject(s));
                 }
+                return sales;
             }
         }
        
