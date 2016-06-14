@@ -1,0 +1,51 @@
+﻿  @model IEnumerable<Sales.Models.PieChartModel>
+@{
+    ViewBag.Title = "Charts";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Charts</h2>
+
+<html>
+<head>
+    <title>Sales in charts</title>
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type="text/javascript">
+    google.load("visualization", "1", {packages:["corechart"]});
+    google.setOnLoadCallback(drawChart);
+    function drawChart() {
+        $.ajax({
+            type: 'GET',
+            contentType: 'application/json; charset=utf-8',
+            url: '/Sales/GetDataAssets',
+            dataType: "json",
+            success: function (pieChartdata) {
+                var data = new google.visualization.DataTable();
+                data.addColumn('string', 'Manager');
+                data.addColumn('number', 'TotalSales');
+
+                $.each(pieChartdata, function (i, d) {
+                    data.addRow([pieChartdata[i].Manager, pieChartdata[i].TotalSales]);
+                });
+
+                var options = {
+                    title: 'Sales by manager',
+                    is3D: true
+                };
+                var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+                chart.draw(data, options);
+            },
+            error: function (data) {
+                alert("Error In getting Records");
+            }
+        });
+    }
+
+    </script>
+</head>
+<body>
+    <div id="piechart" style="width: 900px; height: 500px;"></div>
+</body>
+</html>
+
+  

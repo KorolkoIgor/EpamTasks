@@ -53,9 +53,9 @@
             <td>
               @Html.ActionLink("Delete", "Delete", new { id=item.Id })
                 </td>
-             <td>
+            @* <td>
               @Html.ActionLink("Edit", "Edit", new { id=item.Id })
-                </td>
+                </td>*@
         </tr>
     }
     </tbody>
@@ -63,6 +63,6 @@
 
 @if (User.IsInRole("Admin"))
                 {
-    <p><a class="btn btn-default" href=@Url.Action("Create", "Sales")>Add Sales &raquo;</a></p>
+    <p><a class="btn btn-default" href=@Url.Action("Create", "Sales")>  Add Sales &raquo;</a></p>
                 }
 

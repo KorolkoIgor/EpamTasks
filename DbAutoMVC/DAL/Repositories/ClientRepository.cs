@@ -42,6 +42,13 @@ namespace DAL.Repositories
             }
         }
 
+        //public IEnumerable<ClientDTO> Getall
+        //{
+        //    get
+        //    {
+        //       context.ClientSetAl 
+        //    }
+        //}
 
 
         public IEnumerable<ClientDTO> Items

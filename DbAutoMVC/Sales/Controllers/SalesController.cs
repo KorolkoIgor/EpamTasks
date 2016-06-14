@@ -107,7 +107,7 @@ namespace Sales.Controllers
                     (s, m) =>
                     new PieChartModel
                     {
-                        Manager = m.SecondName,
+                        Manager = m.FirstName,
                         TotalSales = s.Sales
                     });
 
