@@ -1,0 +1,11 @@
+d:\Epam\EpamTasks\Text_Analysis\Text_Analysis\bin\Debug\Text_Analysis.exe.config
+d:\Epam\EpamTasks\Text_Analysis\Text_Analysis\bin\Debug\Text_Analysis.exe
+d:\Epam\EpamTasks\Text_Analysis\Text_Analysis\bin\Debug\Text_Analysis.pdb
+d:\Epam\EpamTasks\Text_Analysis\Text_Analysis\obj\Debug\Text_Analysis.exe
+d:\Epam\EpamTasks\Text_Analysis\Text_Analysis\obj\Debug\Text_Analysis.pdb
+d:\Epam\Epam_final_tasks\Task2\Text_Analysis\Text_Analysis\bin\Debug\Text_Analysis.exe.config
+d:\Epam\Epam_final_tasks\Task2\Text_Analysis\Text_Analysis\obj\Debug\Text_Analysis.exe
+d:\Epam\Epam_final_tasks\Task2\Text_Analysis\Text_Analysis\obj\Debug\Text_Analysis.pdb
+d:\Epam\Epam_final_tasks\Task2\Text_Analysis\Text_Analysis\bin\Debug\Text_Analysis.exe
+d:\Epam\Epam_final_tasks\Task2\Text_Analysis\Text_Analysis\bin\Debug\Text_Analysis.pdb
+d:\Epam\Epam_final_tasks\Task2\Text_Analysis\Text_Analysis\obj\Debug\Text_Analysis.csprojResolveAssemblyReference.cache

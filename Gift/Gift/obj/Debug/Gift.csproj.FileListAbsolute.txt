@@ -1,0 +1,12 @@
+D:\Epam\Study_2016\Task_1\gift_lesson_2\Gift\Gift\bin\Debug\Gift.dll.config
+D:\Epam\Study_2016\Task_1\gift_lesson_2\Gift\Gift\bin\Debug\Gift.dll
+D:\Epam\Study_2016\Task_1\gift_lesson_2\Gift\Gift\bin\Debug\Gift.pdb
+D:\Epam\Study_2016\Task_1\gift_lesson_2\Gift\Gift\obj\Debug\Gift.dll
+D:\Epam\Study_2016\Task_1\gift_lesson_2\Gift\Gift\obj\Debug\Gift.pdb
+D:\Epam\Study_2016\Task_1\gift_lesson_2\Gift\Gift\obj\Debug\Gift.csprojResolveAssemblyReference.cache
+d:\Epam\EpamTasks\Gift\Gift\bin\Debug\Gift.dll.config
+d:\Epam\EpamTasks\Gift\Gift\bin\Debug\Gift.dll
+d:\Epam\EpamTasks\Gift\Gift\bin\Debug\Gift.pdb
+d:\Epam\EpamTasks\Gift\Gift\obj\Debug\Gift.csprojResolveAssemblyReference.cache
+d:\Epam\EpamTasks\Gift\Gift\obj\Debug\Gift.dll
+d:\Epam\EpamTasks\Gift\Gift\obj\Debug\Gift.pdb
