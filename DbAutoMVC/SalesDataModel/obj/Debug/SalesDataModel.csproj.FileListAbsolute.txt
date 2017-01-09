@@ -1,0 +1,10 @@
+d:\Epam\EpamTasks\DbAutoMVC\SalesDataModel\bin\Debug\SalesDataModel.dll.config
+d:\Epam\EpamTasks\DbAutoMVC\SalesDataModel\bin\Debug\SalesDataModel.dll
+d:\Epam\EpamTasks\DbAutoMVC\SalesDataModel\bin\Debug\SalesDataModel.pdb
+d:\Epam\EpamTasks\DbAutoMVC\SalesDataModel\bin\Debug\EntityFramework.dll
+d:\Epam\EpamTasks\DbAutoMVC\SalesDataModel\bin\Debug\EntityFramework.SqlServer.dll
+d:\Epam\EpamTasks\DbAutoMVC\SalesDataModel\bin\Debug\EntityFramework.xml
+d:\Epam\EpamTasks\DbAutoMVC\SalesDataModel\bin\Debug\EntityFramework.SqlServer.xml
+d:\Epam\EpamTasks\DbAutoMVC\SalesDataModel\obj\Debug\SalesDataModel.csprojResolveAssemblyReference.cache
+d:\Epam\EpamTasks\DbAutoMVC\SalesDataModel\obj\Debug\SalesDataModel.dll
+d:\Epam\EpamTasks\DbAutoMVC\SalesDataModel\obj\Debug\SalesDataModel.pdb

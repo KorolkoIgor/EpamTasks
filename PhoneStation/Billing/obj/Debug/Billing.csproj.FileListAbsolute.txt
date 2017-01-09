@@ -1,0 +1,8 @@
+d:\Epam\Epam_final_tasks\Task3\Final\PhoneStation\Billing\bin\Debug\Billing.dll.config
+d:\Epam\Epam_final_tasks\Task3\Final\PhoneStation\Billing\bin\Debug\Billing.dll
+d:\Epam\Epam_final_tasks\Task3\Final\PhoneStation\Billing\bin\Debug\Billing.pdb
+d:\Epam\Epam_final_tasks\Task3\Final\PhoneStation\Billing\bin\Debug\PhoneStation.dll
+d:\Epam\Epam_final_tasks\Task3\Final\PhoneStation\Billing\bin\Debug\PhoneStation.pdb
+d:\Epam\Epam_final_tasks\Task3\Final\PhoneStation\Billing\obj\Debug\Billing.csprojResolveAssemblyReference.cache
+d:\Epam\Epam_final_tasks\Task3\Final\PhoneStation\Billing\obj\Debug\Billing.dll
+d:\Epam\Epam_final_tasks\Task3\Final\PhoneStation\Billing\obj\Debug\Billing.pdb

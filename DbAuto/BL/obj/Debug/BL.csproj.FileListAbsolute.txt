@@ -1,0 +1,11 @@
+d:\Epam\Study_2016\Task_4\Final\DbAuto\BL\bin\Debug\BL.dll
+d:\Epam\Study_2016\Task_4\Final\DbAuto\BL\bin\Debug\BL.pdb
+d:\Epam\Study_2016\Task_4\Final\DbAuto\BL\bin\Debug\DAL.dll
+d:\Epam\Study_2016\Task_4\Final\DbAuto\BL\bin\Debug\SalesDataModel.dll
+d:\Epam\Study_2016\Task_4\Final\DbAuto\BL\bin\Debug\EntityFramework.dll
+d:\Epam\Study_2016\Task_4\Final\DbAuto\BL\bin\Debug\DAL.pdb
+d:\Epam\Study_2016\Task_4\Final\DbAuto\BL\bin\Debug\SalesDataModel.pdb
+d:\Epam\Study_2016\Task_4\Final\DbAuto\BL\bin\Debug\EntityFramework.xml
+d:\Epam\Study_2016\Task_4\Final\DbAuto\BL\obj\Debug\BL.csprojResolveAssemblyReference.cache
+d:\Epam\Study_2016\Task_4\Final\DbAuto\BL\obj\Debug\BL.dll
+d:\Epam\Study_2016\Task_4\Final\DbAuto\BL\obj\Debug\BL.pdb

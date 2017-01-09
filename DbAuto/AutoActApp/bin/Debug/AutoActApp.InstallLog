@@ -1,0 +1,13 @@
+﻿Installing assembly 'D:\!Work\ИГОРЬ\EPAM\Study_2016\Task_4\Commit3\DbAuto\AutoActApp\bin\Debug\AutoActApp.exe'.
+Affected parameters are:
+   logtoconsole = 
+   logfile = D:\!Work\ИГОРЬ\EPAM\Study_2016\Task_4\Commit3\DbAuto\AutoActApp\bin\Debug\AutoActApp.InstallLog
+   assemblypath = D:\!Work\ИГОРЬ\EPAM\Study_2016\Task_4\Commit3\DbAuto\AutoActApp\bin\Debug\AutoActApp.exe
+Installing service AutoActApp...
+Service AutoActApp has been successfully installed.
+Creating EventLog source AutoActApp in log Application...
+Committing assembly 'D:\!Work\ИГОРЬ\EPAM\Study_2016\Task_4\Commit3\DbAuto\AutoActApp\bin\Debug\AutoActApp.exe'.
+Affected parameters are:
+   logtoconsole = 
+   logfile = D:\!Work\ИГОРЬ\EPAM\Study_2016\Task_4\Commit3\DbAuto\AutoActApp\bin\Debug\AutoActApp.InstallLog
+   assemblypath = D:\!Work\ИГОРЬ\EPAM\Study_2016\Task_4\Commit3\DbAuto\AutoActApp\bin\Debug\AutoActApp.exe

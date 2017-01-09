@@ -1,0 +1,16 @@
+d:\Epam\Study_2016\Task_4\Final\DbAuto\Console\bin\Debug\Console.exe.config
+d:\Epam\Study_2016\Task_4\Final\DbAuto\Console\bin\Debug\Console.exe
+d:\Epam\Study_2016\Task_4\Final\DbAuto\Console\bin\Debug\Console.pdb
+d:\Epam\Study_2016\Task_4\Final\DbAuto\Console\bin\Debug\BL.dll
+d:\Epam\Study_2016\Task_4\Final\DbAuto\Console\bin\Debug\EntityFramework.dll
+d:\Epam\Study_2016\Task_4\Final\DbAuto\Console\bin\Debug\EntityFramework.SqlServer.dll
+d:\Epam\Study_2016\Task_4\Final\DbAuto\Console\bin\Debug\DAL.dll
+d:\Epam\Study_2016\Task_4\Final\DbAuto\Console\bin\Debug\SalesDataModel.dll
+d:\Epam\Study_2016\Task_4\Final\DbAuto\Console\bin\Debug\BL.pdb
+d:\Epam\Study_2016\Task_4\Final\DbAuto\Console\bin\Debug\EntityFramework.xml
+d:\Epam\Study_2016\Task_4\Final\DbAuto\Console\bin\Debug\EntityFramework.SqlServer.xml
+d:\Epam\Study_2016\Task_4\Final\DbAuto\Console\bin\Debug\DAL.pdb
+d:\Epam\Study_2016\Task_4\Final\DbAuto\Console\bin\Debug\SalesDataModel.pdb
+d:\Epam\Study_2016\Task_4\Final\DbAuto\Console\obj\Debug\ConsoleWatcher.csprojResolveAssemblyReference.cache
+d:\Epam\Study_2016\Task_4\Final\DbAuto\Console\obj\Debug\Console.exe
+d:\Epam\Study_2016\Task_4\Final\DbAuto\Console\obj\Debug\Console.pdb

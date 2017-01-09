@@ -1,0 +1,12 @@
+d:\Epam\Study_2016\Task_4\Final\DbAuto\DAL\bin\Debug\DAL.dll.config
+d:\Epam\Study_2016\Task_4\Final\DbAuto\DAL\bin\Debug\DAL.dll
+d:\Epam\Study_2016\Task_4\Final\DbAuto\DAL\bin\Debug\DAL.pdb
+d:\Epam\Study_2016\Task_4\Final\DbAuto\DAL\bin\Debug\EntityFramework.dll
+d:\Epam\Study_2016\Task_4\Final\DbAuto\DAL\bin\Debug\EntityFramework.SqlServer.dll
+d:\Epam\Study_2016\Task_4\Final\DbAuto\DAL\bin\Debug\SalesDataModel.dll
+d:\Epam\Study_2016\Task_4\Final\DbAuto\DAL\bin\Debug\SalesDataModel.pdb
+d:\Epam\Study_2016\Task_4\Final\DbAuto\DAL\bin\Debug\EntityFramework.xml
+d:\Epam\Study_2016\Task_4\Final\DbAuto\DAL\bin\Debug\EntityFramework.SqlServer.xml
+d:\Epam\Study_2016\Task_4\Final\DbAuto\DAL\obj\Debug\DAL.csprojResolveAssemblyReference.cache
+d:\Epam\Study_2016\Task_4\Final\DbAuto\DAL\obj\Debug\DAL.dll
+d:\Epam\Study_2016\Task_4\Final\DbAuto\DAL\obj\Debug\DAL.pdb

@@ -1,0 +1,11 @@
+d:\Epam\EpamTasks\PhoneStation\Demo\bin\Debug\Demo.exe.config
+d:\Epam\Epam_final_tasks\Task3\Final\PhoneStation\Demo\bin\Debug\Demo.exe.config
+d:\Epam\Epam_final_tasks\Task3\Final\PhoneStation\Demo\bin\Debug\Demo.exe
+d:\Epam\Epam_final_tasks\Task3\Final\PhoneStation\Demo\bin\Debug\Demo.pdb
+d:\Epam\Epam_final_tasks\Task3\Final\PhoneStation\Demo\bin\Debug\Billing.dll
+d:\Epam\Epam_final_tasks\Task3\Final\PhoneStation\Demo\bin\Debug\PhoneStation.dll
+d:\Epam\Epam_final_tasks\Task3\Final\PhoneStation\Demo\bin\Debug\Billing.pdb
+d:\Epam\Epam_final_tasks\Task3\Final\PhoneStation\Demo\bin\Debug\PhoneStation.pdb
+d:\Epam\Epam_final_tasks\Task3\Final\PhoneStation\Demo\obj\Debug\Demo.csprojResolveAssemblyReference.cache
+d:\Epam\Epam_final_tasks\Task3\Final\PhoneStation\Demo\obj\Debug\Demo.exe
+d:\Epam\Epam_final_tasks\Task3\Final\PhoneStation\Demo\obj\Debug\Demo.pdb

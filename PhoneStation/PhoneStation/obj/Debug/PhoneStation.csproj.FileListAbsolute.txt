@@ -1,0 +1,5 @@
+d:\Epam\Epam_final_tasks\Task3\Final\PhoneStation\PhoneStation\bin\Debug\PhoneStation.dll.config
+d:\Epam\Epam_final_tasks\Task3\Final\PhoneStation\PhoneStation\bin\Debug\PhoneStation.dll
+d:\Epam\Epam_final_tasks\Task3\Final\PhoneStation\PhoneStation\bin\Debug\PhoneStation.pdb
+d:\Epam\Epam_final_tasks\Task3\Final\PhoneStation\PhoneStation\obj\Debug\PhoneStation.dll
+d:\Epam\Epam_final_tasks\Task3\Final\PhoneStation\PhoneStation\obj\Debug\PhoneStation.pdb
